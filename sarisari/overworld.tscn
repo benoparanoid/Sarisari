@@ -17,6 +17,5 @@ position = Vector2(478, 513)
 z_as_relative = false
 position = Vector2(480, 533)
 
-[node name="Crop" parent="Table" instance=ExtResource("3_nyb65")]
-z_as_relative = false
-position = Vector2(8, -5)
+[node name="Wheat" parent="Table" instance=ExtResource("3_nyb65")]
+position = Vector2(9, -5)

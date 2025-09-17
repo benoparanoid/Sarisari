@@ -1,16 +1,22 @@
 extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $PlayerAnimation
+@onready var frontRay: RayCast2D = $FrontRay
 
-@export var speed=200
+
+@export var item_infront = null
+@export var speed=100
 var input_direction
 
+func _ready() -> void:
+	frontRay.target_position = Vector2(0.0, 20.0)
 
 func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	player_animation()
 	player_idle()
+	player_interact()
 
 func get_input():
 	input_direction = Input.get_vector("MoveLeft","MoveRight","MoveUp","MoveDown")
@@ -41,6 +47,18 @@ func player_idle():
 		anim.play("PlayerIdleUp")
 		
 func player_interact():
-	if Input.is_action_pressed("Interact"):
-		print("Interacted")
+	if frontRay.is_colliding():
+		var detect = frontRay.get_collider()
+		if detect is Area2D:
+			var item_current_inFront = detect.name
+			if item_infront != item_current_inFront:
+				item_infront = detect.name
+				print("Item : ", item_infront)
+		if Input.is_action_just_pressed("Interact"):
+			print("I just clicked: ", item_infront)
+	else:
+		if item_infront != null:
+			print("null")
+			item_infront = null
+		
 	
