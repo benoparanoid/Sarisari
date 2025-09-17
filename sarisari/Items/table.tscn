@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://6mkvpmba48sd"]
+
+[ext_resource type="Texture2D" uid="uid://ewh5p33osxw8" path="res://Assets/Indoor_Decor.png" id="1_kt0a0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlnsr"]
+size = Vector2(28, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfjyh"]
+atlas = ExtResource("1_kt0a0")
+region = Rect2(0, 0, 32, 16)
+
+[node name="Table" type="Node2D"]
+
+[node name="Node2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_vlnsr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = SubResource("AtlasTexture_qfjyh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_vlnsr")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjn2y28lobjn5"]
+
+[ext_resource type="PackedScene" uid="uid://6mkvpmba48sd" path="res://Items/table.tscn" id="1_v726c"]
+[ext_resource type="PackedScene" uid="uid://2y117n0i05rs" path="res://Characters/player.tscn" id="2_nyb65"]
+[ext_resource type="PackedScene" uid="uid://b7g44ek70kaxa" path="res://Items/wheat.tscn" id="3_nyb65"]
+
+[node name="Overworld" type="Node2D"]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_nyb65")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(478, 513)
+
+[node name="Table" parent="." instance=ExtResource("1_v726c")]
+z_as_relative = false
+position = Vector2(480, 533)
+
+[node name="Crop" parent="Table" instance=ExtResource("3_nyb65")]
+z_as_relative = false
+position = Vector2(8, -5)
